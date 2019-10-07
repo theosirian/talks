@@ -12,6 +12,6 @@ $ pandoc -t beamer --pdf-engine xelatex -V theme:metropolis $IN -o $OUT
 
 On Arch Linux:
 
-```
-$ pacman -S texlive-core pandoc {otf,ttf}-fira-{code,mono,sans}
+```bash
+# pacman -S texlive-core pandoc {otf,ttf}-fira-{code,mono,sans}
 ```
