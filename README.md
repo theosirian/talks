@@ -14,4 +14,4 @@ On Arch Linux:
 
 ```
 $ pacman -S texlive-core pandoc {otf,ttf}-fira-{code,mono,sans}
-``
+```
