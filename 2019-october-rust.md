@@ -1,4 +1,11 @@
-# Rust: confiabilidade e segurança
+---
+title: Rust
+subtitle: Confiabilidade e segurança
+date: Outubro, 2019
+author:
+- Tiago Nascimento,
+- Guilherme Chichanoski
+---
 
 ## Propósito
 Rust  é uma  linguagem de  programação de  sistemas que  se propõe  a equiparar  C e  C++ em  desempenho sem  sacrificar
