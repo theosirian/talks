@@ -480,10 +480,10 @@ let y = &mut pt;
 
 ## *Macros*
 
-- declarative macros
-- procedural macros
+- declarativas;
+- procedurais.
 
-Capaz de gerar implementações a partir de anotações.
+Provê geração de código a partir de anotações.
 
 ```rust
 #[derive(Debug)] // procedural macro
@@ -495,8 +495,6 @@ fn main() {
 ```
 
 ## *Macros*
-
-Ex:
 
 ```rust
 #[macro_export]
