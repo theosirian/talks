@@ -478,6 +478,65 @@ let y = &mut pt;
 ... // resto do código usando apenas y
 ```
 
+## *Pattern Matching*
+
+No `rust` não há o conceito de `switch case`, porem temos o match.
+
+Com ele podemos fazer o seguinte:
+``` rust
+let x = 1;
+
+match x {
+    1 => println!("one"),
+    2 => println!("two"),
+    3 => println!("three"),
+    _ => println!("anything"),
+}
+```
+
+## *Pattern Matching*
+
+É obrigatório satisfazer todas as possibilidades num bloco `match`.
+
+``` rust
+let x = Some(1); // enum Option<T> { Some(T), None }
+
+match x {
+    Some(e) => println!("{}", e)
+}
+```
+
+## *Pattern Matching*
+
+```
+error[E0004]: non-exhaustive patterns: `None` not covered
+ --> test.rs:4:11
+  |
+4 |     match x {
+  |           ^ pattern `None` not covered
+  |
+  = help: ensure that all possible cases are being handled, possibly by adding wildcards or more match arms
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0004`.
+```
+
+## *Pattern Matching*
+
+Mas também existe uma maneira de tratar todos os casos restantes de uma vez só.
+
+``` rust
+let x = Some(1); // enum Result<T> { Some(T), None }
+
+match x {
+    Some(1) => println!("11"),
+    Some(2) => println!("22"),
+    Some(e) => println!("{}", e),
+    _ => println!("None")
+}
+```
+
 # Dúvidas?
 
 ## Referências
