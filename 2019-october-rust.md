@@ -208,6 +208,102 @@ let origin = Point { x: 0, y: 0 };
 point.print(); // prints "(0, 0)"
 ```
 
+## *Pattern Matching*
+
+No `rust` não há o conceito de `switch case`, porem temos o match.
+
+Com ele podemos fazer o seguinte:
+``` rust
+let x = 1;
+
+match x {
+    1 => println!("one"),
+    2 => println!("two"),
+    3 => println!("three"),
+    _ => println!("anything"),
+}
+```
+
+## *Pattern Matching*
+
+É obrigatório satisfazer todas as possibilidades num bloco `match`.
+
+``` rust
+let x = Some(1); // enum Option<T> { Some(T), None }
+
+match x {
+    Some(e) => println!("{}", e)
+}
+```
+
+## *Pattern Matching*
+
+```
+error[E0004]: non-exhaustive patterns: `None` not covered
+ --> test.rs:4:11
+  |
+4 |     match x {
+  |           ^ pattern `None` not covered
+  |
+  = help: ensure that all possible cases are being handled, possibly by adding wildcards or more match arms
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0004`.
+```
+
+## *Pattern Matching*
+
+Mas também existe uma maneira de tratar todos os casos restantes de uma vez só.
+
+``` rust
+let x = Some(1); // enum Result<T> { Some(T), None }
+
+match x {
+    Some(1) => println!("11"),
+    Some(2) => println!("22"),
+    Some(e) => println!("{}", e),
+    _ => println!("None")
+}
+```
+
+## *Macros*
+
+- declarativas;
+- procedurais.
+
+Provê geração de código a partir de anotações.
+
+```rust
+#[derive(Debug)] // procedural macro
+struct VoidStruct;
+
+fn main() {
+    println!("Hello World!") // declarative macro
+}
+```
+
+## *Macros*
+
+```rust
+#[macro_export]
+macro_rules! vec {
+    ( $( $x:expr ),* ) => {
+        {
+            let mut temp_vec = Vec::new();
+            $(
+                temp_vec.push($x);
+            )*
+            temp_vec
+        }
+    };
+}
+
+fn main() {
+    let x = vec![1,2,3];
+}
+```
+
 ## Cargo
 Cargo é uma ferramenta para ajudar no fluxo de desenvolvimento do Rust.
 
@@ -476,65 +572,6 @@ let mut pt = Point(6, 9);
 let x = &mut pt;
 let y = &mut pt;
 ... // resto do código usando apenas y
-```
-
-## *Pattern Matching*
-
-No `rust` não há o conceito de `switch case`, porem temos o match.
-
-Com ele podemos fazer o seguinte:
-``` rust
-let x = 1;
-
-match x {
-    1 => println!("one"),
-    2 => println!("two"),
-    3 => println!("three"),
-    _ => println!("anything"),
-}
-```
-
-## *Pattern Matching*
-
-É obrigatório satisfazer todas as possibilidades num bloco `match`.
-
-``` rust
-let x = Some(1); // enum Option<T> { Some(T), None }
-
-match x {
-    Some(e) => println!("{}", e)
-}
-```
-
-## *Pattern Matching*
-
-```
-error[E0004]: non-exhaustive patterns: `None` not covered
- --> test.rs:4:11
-  |
-4 |     match x {
-  |           ^ pattern `None` not covered
-  |
-  = help: ensure that all possible cases are being handled, possibly by adding wildcards or more match arms
-
-error: aborting due to previous error
-
-For more information about this error, try `rustc --explain E0004`.
-```
-
-## *Pattern Matching*
-
-Mas também existe uma maneira de tratar todos os casos restantes de uma vez só.
-
-``` rust
-let x = Some(1); // enum Result<T> { Some(T), None }
-
-match x {
-    Some(1) => println!("11"),
-    Some(2) => println!("22"),
-    Some(e) => println!("{}", e),
-    _ => println!("None")
-}
 ```
 
 # Dúvidas?
