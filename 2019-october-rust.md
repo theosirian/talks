@@ -480,7 +480,7 @@ let y = &mut pt;
 
 ## *Pattern Matching*
 
-No `rust` não temos o conceito de `switch case`, porem temos o match.
+No `rust` não há o conceito de `switch case`, porem temos o match.
 
 Com ele podemos fazer o seguinte:
 ``` rust
@@ -496,12 +496,10 @@ match x {
 
 ## *Pattern Matching*
 
-Um fato relevante do *Pattern Matching* é a obrigatoriedade de todas as possibilidades serem satisfeitas.
-
-Por exemplo o seguinte código não é valido. Pois somente uma possibilidade foi tratado no `match`.
+É obrigatório satisfazer todas as possibilidades num bloco `match`.
 
 ``` rust
-let x = Some(1); // enum Result<T> { Some(T), None }
+let x = Some(1); // enum Option<T> { Some(T), None }
 
 match x {
     Some(e) => println!("{}", e)
@@ -526,7 +524,7 @@ For more information about this error, try `rustc --explain E0004`.
 
 ## *Pattern Matching*
 
-Para corrigir podemos definir um `default` utilizando `_`
+Mas também existe uma maneira de tratar todos os casos restantes de uma vez só.
 
 ``` rust
 let x = Some(1); // enum Result<T> { Some(T), None }
